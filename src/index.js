@@ -1,11 +1,3 @@
-class Competencia {
-   year = undefined
-   month = undefined
+const Competencia = require('./Competencia')
 
-   constructor(year, month) {
-      this.year = year
-      this.month = month
-   }
-}
-
-module.exports = Competencia;
+module.exports = {Competencia};
