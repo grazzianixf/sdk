@@ -1,5 +1,10 @@
 const YearMonth = require("./YearMonth");
 const Finance = require("./Finance");
+const Utils = require("./Utils");
 
-module.exports = { YearMonth, Finance };
+module.exports = { 
+   Finance, 
+   Utils, 
+   YearMonth 
+};
 
