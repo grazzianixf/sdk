@@ -46,7 +46,41 @@ const toString = (obj, ...props) => {
 	return result;
 };
 
+const groupBy = (array, fieldName) => {
+	if (array && array.length && fieldName) {
+		return array.reduce((group, item) => {
+			const field = item[fieldName];
+			group[field] = group[field] ?? [];
+			group[field].push(item);
+
+			return group;
+		  }, {});
+	} else {
+		return array
+	}
+}
+
+const countGroupBy = (array, fieldName) => {
+	let result = [];
+	let objGroupedArray = groupBy(array, fieldName)
+
+	if (objGroupedArray && Object.keys(objGroupedArray).length) {
+		for (const key in objGroupedArray) {
+			if (Object.hasOwnProperty.call(objGroupedArray, key)) {
+				const element = objGroupedArray[key];
+				result.push({ [fieldName]: key, count: element.length})
+			}
+		}
+	}
+
+	return result;
+}
+
 module.exports = {
 	pickObject,
 	toString,
+	Array: {
+		countGroupBy,
+		groupBy
+	}
 };
