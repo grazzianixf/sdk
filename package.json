@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/grazzianixf/sdk/issues"
   },
-  "homepage": "https://github.com/grazzianixf/sdk#readme"
+  "homepage": "https://github.com/grazzianixf/sdk#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
 }

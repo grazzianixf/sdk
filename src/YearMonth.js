@@ -50,9 +50,8 @@ module.exports = class YearMonth {
 	}
 
 	get monthDescription() {
-		return `Month ${this.#month}`;
+		return new Date(this.#year,this.#month-1).toLocaleDateString(LOCALE, { month:"long"})
    }
-	
    
    get description() {
       return new Date(this.#year,this.#month-1).toLocaleDateString(LOCALE, { year:"numeric", month:"long"})
