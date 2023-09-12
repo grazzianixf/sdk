@@ -1,6 +1,7 @@
 const Utils = require("../src/Utils");
 
 // -- Object
+// test("name", () => {})
 // expect().toBe()
 
 test("pickObject: obj or properties empty", () => {
@@ -54,4 +55,14 @@ test("countGroupBy: success", () => {
 
 	expect(Utils.Array.countGroupBy(ar, "type")["success"]).toBe(2)
 	expect(Utils.Array.countGroupBy(ar, "type")["fail"]).toBe(1)
+})
+
+test("sumField: success", () => {
+	let ar = [
+		{ type: "success", value: 10},
+		{ type: "fail", value: 20},
+		{ type: "success", value: 30},
+	]
+
+	expect(Utils.Array.sumField(ar, "value")).toBe(60)
 })
