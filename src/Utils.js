@@ -70,17 +70,23 @@ const groupBy = (array, fieldName) => {
 	}
 }
 
+/**
+ * 
+ * @param {Array} array 
+ * @param {String} fieldName 
+ * @returns A object containing counts by fieldname param in array param
+ */
 const countGroupBy = (array, fieldName) => {
 	let result = {};
-	let objGroupedArray = groupBy(array, fieldName)
 
-	if (objGroupedArray && Object.keys(objGroupedArray).length) {
-		for (const key in objGroupedArray) {
-			if (Object.hasOwnProperty.call(objGroupedArray, key)) {
-				const element = objGroupedArray[key];
-				result[key] = element.length
-			}
-		}
+	if (array && array.length && fieldName) {
+		return array.reduce((group, item) => {
+			const field = item[fieldName];
+			group[field] = group[field] ?? 0;
+			group[field]++;
+
+			return group;
+		  }, {});
 	}
 
 	return result;
@@ -89,8 +95,6 @@ const countGroupBy = (array, fieldName) => {
 //--
 
 module.exports = {
-	pickObject, // FIXME remover
-	toString, // FIXME remover
 	Array: {
 		countGroupBy,
 		groupBy
