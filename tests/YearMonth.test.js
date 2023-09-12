@@ -50,10 +50,3 @@ test("move", () => {
 	expect(ym.year).toBe(2023);
 	expect(ym.month).toBe(1);
 });
-
-// ym.previous(-11);
-// expect(ym.year).toBe(2021);
-// expect(ym.month).toBe(12);
-// ym.next(11);
-// expect(ym.year).toBe(2025);
-// expect(ym.month).toBe(1);
