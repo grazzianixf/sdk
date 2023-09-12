@@ -1,3 +1,4 @@
+// -- Object
 /**
  * 
  * @param {Object} obj 
@@ -21,8 +22,9 @@ const pickObject = (obj, ...properties) => {
  * @returns String descriptor for the object param
  */
 const toString = (obj, ...props) => {
-	let result = "{";
+	let result = "";
 	if (obj) {
+		result = "{";
 		if (props && props.length) {
 			props.map(
 				(prop, i) =>
@@ -39,13 +41,21 @@ const toString = (obj, ...props) => {
 					}`)
 			);
 		}
+		result += "}";
 	}
 
-	result += "}";
 
 	return result;
 };
 
+// -- Array
+
+/**
+ * 
+ * @param {Object[]} array 
+ * @param {String} fieldName 
+ * @returns A object containing available properties such fieldName exists in array param
+ */
 const groupBy = (array, fieldName) => {
 	if (array && array.length && fieldName) {
 		return array.reduce((group, item) => {
@@ -61,14 +71,14 @@ const groupBy = (array, fieldName) => {
 }
 
 const countGroupBy = (array, fieldName) => {
-	let result = [];
+	let result = {};
 	let objGroupedArray = groupBy(array, fieldName)
 
 	if (objGroupedArray && Object.keys(objGroupedArray).length) {
 		for (const key in objGroupedArray) {
 			if (Object.hasOwnProperty.call(objGroupedArray, key)) {
 				const element = objGroupedArray[key];
-				result.push({ [fieldName]: key, count: element.length})
+				result[key] = element.length
 			}
 		}
 	}
@@ -76,11 +86,17 @@ const countGroupBy = (array, fieldName) => {
 	return result;
 }
 
+//--
+
 module.exports = {
-	pickObject,
-	toString,
+	pickObject, // FIXME remover
+	toString, // FIXME remover
 	Array: {
 		countGroupBy,
 		groupBy
+	},
+	Object: {
+		pickObject,
+		toString
 	}
 };
