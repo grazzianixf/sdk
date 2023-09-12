@@ -92,12 +92,32 @@ const countGroupBy = (array, fieldName) => {
 	return result;
 }
 
+/**
+ * 
+ * @param {Array} array 
+ * @param {String} fieldName 
+ * @param {Number} decimalPlace 
+ * @returns A number who contains the sum of all array's itemsm considering the fieldName param
+ */
+const sumField = (array, fieldName, decimalPlace = 2) => {
+	if (!array || !array.length || !fieldName) {
+		return
+	}
+
+	let result = array.reduce( (previousValue, item) => previousValue + item[fieldName], 0)
+	let multiplier = Math.pow(10, decimalPlace)
+	result = Math.round(result * multiplier) / multiplier
+	
+	return result
+}
+
 //--
 
 module.exports = {
 	Array: {
 		countGroupBy,
-		groupBy
+		groupBy,
+		sumField
 	},
 	Object: {
 		pickObject,
