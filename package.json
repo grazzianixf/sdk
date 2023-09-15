@@ -25,5 +25,8 @@
   "homepage": "https://github.com/grazzianixf/sdk#readme",
   "devDependencies": {
     "jest": "^29.7.0"
+  },
+  "dependencies": {
+    "firebase": "^10.4.0"
   }
 }
