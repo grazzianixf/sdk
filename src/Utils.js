@@ -121,6 +121,21 @@ module.exports = {
 	},
 	Object: {
 		pickObject,
-		toString
+		toString,
+
+		removeObjectAttributes: (obj, ...attributes) => {
+			if (obj && typeof obj === "object") {
+				let updatedObj = {};
+				Object.keys(obj).forEach(k => {
+					if (!attributes.includes(k)) {
+						updatedObj[k] = obj[k]
+					}
+				})
+		
+				return updatedObj;
+			} else {
+				return obj
+			}
+		}
 	}
 };
