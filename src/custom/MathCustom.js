@@ -1,4 +1,4 @@
-class Math {
+class MathCustom {
     static nextInteger(n) {
         let integer = Math.trunc(n);
     
