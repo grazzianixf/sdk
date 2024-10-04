@@ -28,16 +28,14 @@ const toString = (obj, ...props) => {
 		if (props && props.length) {
 			props.map(
 				(prop, i) =>
-					(result += `${prop} = ${obj[prop]}${
-						i != props.length - 1 ? ", " : ""
+				(result += `${prop} = ${obj[prop]}${i != props.length - 1 ? ", " : ""
 					}`)
 			);
 		} else {
 			let objProps = Object.keys(obj);
 			objProps.map(
 				(prop, i) =>
-					(result += `${prop} = ${obj[prop]}${
-						i != objProps.length - 1 ? ", " : ""
+				(result += `${prop} = ${obj[prop]}${i != objProps.length - 1 ? ", " : ""
 					}`)
 			);
 		}
@@ -64,7 +62,7 @@ const groupBy = (array, fieldName) => {
 			group[field].push(item);
 
 			return group;
-		  }, {});
+		}, {});
 	} else {
 		return array
 	}
@@ -86,7 +84,7 @@ const countGroupBy = (array, fieldName) => {
 			group[field]++;
 
 			return group;
-		  }, {});
+		}, {});
 	}
 
 	return result;
@@ -104,10 +102,10 @@ const sumField = (array, fieldName, decimalPlace = 2) => {
 		return
 	}
 
-	let result = array.reduce( (previousValue, item) => previousValue + item[fieldName], 0)
+	let result = array.reduce((previousValue, item) => previousValue + item[fieldName], 0)
 	let multiplier = Math.pow(10, decimalPlace)
 	result = Math.round(result * multiplier) / multiplier
-	
+
 	return result
 }
 
@@ -123,6 +121,9 @@ module.exports = {
 		pickObject,
 		toString,
 
+		isObject: (objValue) => objValue && typeof objValue === 'object' && objValue.constructor === Object
+		,
+
 		removeObjectAttributes: (obj, ...attributes) => {
 			if (obj && typeof obj === "object") {
 				let updatedObj = {};
@@ -131,7 +132,7 @@ module.exports = {
 						updatedObj[k] = obj[k]
 					}
 				})
-		
+
 				return updatedObj;
 			} else {
 				return obj
