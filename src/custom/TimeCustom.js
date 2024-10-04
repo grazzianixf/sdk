@@ -1,4 +1,4 @@
-class TimeCustom {
+module.exports = class TimeCustom {
     static integer2TimeString(n) {
         let integerPart = Math.trunc(n);
 
@@ -18,4 +18,12 @@ class TimeCustom {
 
         return `${day > 0 ? `${day}d` : ''}${hours}h${Math.trunc(minutes)}min`
     }
+
+    static getCurrentYear() {
+        return new Date().getFullYear();
+    }
+
+    static getCurrentMonth() {
+        return (new Date().getMonth()) + 1;
+    }    
 }

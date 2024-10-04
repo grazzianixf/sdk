@@ -22,6 +22,8 @@ module.exports = class YearMonth {
 			this.#year = date.getFullYear();
 			this.#month = date.getMonth() + 1;
 		}
+
+		return this;
 	}
 
 	/**
@@ -44,14 +46,14 @@ module.exports = class YearMonth {
 	 * Move YearMonth to previous. Same that 'move(-1)'
 	 */
 	previous() {
-		this.move(-1);
+		return this.move(-1);
 	}
 
 	/**
 	 * Move YearMonth to next. Same that 'move(1)'
 	 */
 	next() {
-		this.move(1);
+		return this.move(1);
 	}
 
 	toString() {
