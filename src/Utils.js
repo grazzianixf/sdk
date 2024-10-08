@@ -102,7 +102,7 @@ const sumField = (array, fieldName, decimalPlace = 2) => {
 		return
 	}
 
-	let result = array.reduce((previousValue, item) => previousValue + item[fieldName], 0)
+	let result = array.reduce((previousValue, item) => previousValue + Number(item[fieldName]), 0)
 	let multiplier = Math.pow(10, decimalPlace)
 	result = Math.round(result * multiplier) / multiplier
 
