@@ -138,5 +138,8 @@ module.exports = {
 				return obj
 			}
 		}
+	},
+	Function: {
+		isFunction: (functionToCheck) => functionToCheck && {}.toString.call(functionToCheck) === '[object Function]'
 	}
 };
