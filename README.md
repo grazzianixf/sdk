@@ -1,5 +1,13 @@
 # sdk
 
+## How to write a typescript library
+
+```shell
+npm install -g typescript
+```
+
+- https://www.tsmean.com/articles/how-to-write-a-typescript-library/
+
 ## Publishing on Github Packages
 - `package.json` file
    - Check `name` property. It must to be like `@USER/project-name`
