@@ -1,4 +1,4 @@
-module.exports = class TimeCustom {
+export class TimeCustom {
     static integer2TimeString(n) {
         let integerPart = Math.trunc(n);
 

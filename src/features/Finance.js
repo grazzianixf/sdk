@@ -1,4 +1,4 @@
-const Utils = require("./../src/Utils");
+const Utils = require("./Utils");
 
 /**
  * 

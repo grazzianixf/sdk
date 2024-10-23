@@ -4,7 +4,7 @@ const MIN_MONTH = 1;
 const MAX_MONTH = 12;
 const LOCALE = "en-us";
 
-module.exports = class YearMonth {
+export class YearMonth {
 	#year = null;
 	#month = null;
 
